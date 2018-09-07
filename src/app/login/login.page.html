@@ -1,17 +1,25 @@
 <ion-content padding>
   <div class="login-container">
-    <ion-label>Propaganda</ion-label>
-    <ion-list class="form-dark" [formGroup]="loginForm">
-      <ion-item>
-        <ion-icon slot='start' name='contact'></ion-icon>
-        <ion-input placeholder='username' type='email' autocapitalize=off formControlName="emailaddress"></ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-icon slot='start' name='lock'></ion-icon>
-          <ion-input placeholder='password' type='password' (keypress)="keyPress($event.keyCode)"  formControlName="password"></ion-input>
-      </ion-item>
-      <ion-button class="login-button" (click)="login()" [disabled]="!loginForm.valid" >Login</ion-button>
-      <ion-label text-wrap>{{error}}</ion-label>
-  </ion-list>
+      <ion-grid>
+          <ion-row>
+            <ion-col style="text-align: center">
+                <img class="logo" src="assets/images/logo.jpg" alt="">
+                <ion-list class="form-dark" [formGroup]="loginForm">
+                  <ion-item>
+                    <ion-icon slot='start' name='contact'></ion-icon>
+                    <ion-input placeholder='username' type='email' autocapitalize=off formControlName="emailaddress"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                      <ion-icon slot='start' name='lock'></ion-icon>
+                      <ion-input placeholder='password' type='password' (keypress)="keyPress($event.keyCode)"  formControlName="password"></ion-input>
+                  </ion-item>
+                  <ion-button class="login-button" (click)="login()" [disabled]="!loginForm.valid" >Login</ion-button>
+                  <ion-label text-wrap>{{error}}</ion-label>
+                </ion-list>
+            </ion-col>
+          </ion-row>
+      </ion-grid>
+
+    
   </div>
 </ion-content>
