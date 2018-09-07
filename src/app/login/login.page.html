@@ -11,6 +11,7 @@
           <ion-input placeholder='password' type='password' (keypress)="keyPress($event.keyCode)"  formControlName="password"></ion-input>
       </ion-item>
       <ion-button class="login-button" (click)="login()" [disabled]="!loginForm.valid" >Login</ion-button>
+      <ion-label text-wrap>{{error}}</ion-label>
   </ion-list>
   </div>
 </ion-content>

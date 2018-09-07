@@ -15,4 +15,12 @@ export class AuthService {
         console.log('Sign in with email');
 		return this.afAuth.auth.signInWithEmailAndPassword(email, password);
     }
+
+    isAuthenticated(){
+        if (!this.user){
+            return false; 
+        }
+
+        return true;
+    }
 }
