@@ -19,8 +19,8 @@ export class LoginPage implements OnInit {
 
   constructor(public formBuilder: FormBuilder, private auth: AuthService, private router: Router) {
     this.loginForm = this.formBuilder.group({
-      emailaddress: ['', Validators.required],
-      password: ['', Validators.required]
+      emailaddress: ['', Validators.compose([Validators.required, Validators.email])],
+      password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
     });
   }
 
@@ -34,7 +34,22 @@ export class LoginPage implements OnInit {
       () => this.router.navigate(['/home']),
       error => this.error = error.message
     );
+  }
 
+  loginWithGoogle() {
+    this.auth.signInWithGoogle()
+      .then(
+        () => this.router.navigate(['/home']),
+        error => console.log(error.message)
+      );
+  }
+
+  loginWithFacebook() {
+    this.auth.signInWithFacebook()
+      .then(
+        () => this.router.navigate(['/home']),
+        error => console.log(error.message)
+      );
   }
 
   forgotPasword() {

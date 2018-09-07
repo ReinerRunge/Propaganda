@@ -13,8 +13,23 @@
                       <ion-icon slot='start' name='lock'></ion-icon>
                       <ion-input placeholder='password' type='password' (keypress)="keyPress($event.keyCode)"  formControlName="password"></ion-input>
                   </ion-item>
-                  <ion-button class="login-button" (click)="login()" [disabled]="!loginForm.valid" >Login</ion-button>
+                  <ion-button style="margin-top: 10px" small (click)="login()" [disabled]="!loginForm.valid" >Login</ion-button>
                   <ion-label text-wrap>{{error}}</ion-label>
+
+                  <ion-button icon-left block fill="outline" (click)="loginWithGoogle()">
+                      <ion-icon name="logo-google"></ion-icon>
+                      Log in with Google
+                    </ion-button>
+
+                    <ion-button icon-left block fill="outline" (click)="loginWithFacebook()">
+                      <ion-icon name="logo-facebook"></ion-icon>
+                      Log in with Facebook
+                    </ion-button>
+            
+                    <!-- <ion-button icon-left block fill="outline" (click)="signup()">
+                      <ion-icon name="person-add"></ion-icon>
+                      Sign up
+                    </ion-button> -->
                 </ion-list>
             </ion-col>
           </ion-row>
