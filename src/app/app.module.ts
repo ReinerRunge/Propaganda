@@ -10,7 +10,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { firebaseConfig } from '../config';
 import { environment } from '../environments/environment';
 import { AuthService } from '../providers/services/auth-service';
-import { AuthGuardService } from '../providers/services/authguard-service';
+import { AuthGuard } from '../providers/services/authguard-service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 @NgModule({
@@ -29,7 +29,7 @@ import { AppComponent } from './app.component';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     AngularFireAuth,
     AuthService,
-    AuthGuardService
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
