@@ -52,6 +52,14 @@ export class LoginPage implements OnInit {
       );
   }
 
+  loginWithTwitter() {
+    this.auth.signInWithTwitter()
+      .then(
+        () => this.router.navigate(['/home']),
+        error => console.log(error.message)
+      );
+  }
+
   forgotPasword() {
 
   }

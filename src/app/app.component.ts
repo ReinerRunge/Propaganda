@@ -42,19 +42,19 @@ export class AppComponent {
       this.splashScreen.hide();
     });
 
-    // this.auth.afAuth.authState
-    // .subscribe(
-    //   user => {
-    //     if (user) {
-    //       this.router.navigate(['home']);
-    //     } else {
-    //       this.router.navigate(['login']);
-    //     }
-    //   },
-    //   () => {
-    //     this.router.navigate(['login']);
-    //   }
-    // );
+    this.auth.afAuth.authState
+    .subscribe(
+      user => {
+        if (user) {
+          this.router.navigate(['home']);
+        } else {
+          this.router.navigate(['login']);
+        }
+      },
+      () => {
+        this.router.navigate(['login']);
+      }
+    );
   }
 
 }

@@ -24,6 +24,10 @@ export class AuthService {
         return this.oauthSignIn(new firebase.auth.FacebookAuthProvider());
     }
 
+    signInWithTwitter(){
+        return this.oauthSignIn(new firebase.auth.TwitterAuthProvider());
+    }
+
     private oauthSignIn(provider: AuthProvider): Promise<any> {
         if (!(window).cordova) {
             return this.afAuth.auth.signInWithPopup(provider);
