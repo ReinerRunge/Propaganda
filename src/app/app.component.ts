@@ -4,6 +4,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Platform } from '@ionic/angular';
 import { AuthService } from '../providers/services/auth-service';
+import { UpdateService } from '../providers/services/update-service';
 
 
 @Component({
@@ -31,6 +32,7 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private auth: AuthService,
+    private update: UpdateService,
     private router: Router
   ) {
     this.initializeApp();

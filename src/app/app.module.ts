@@ -11,6 +11,7 @@ import { firebaseConfig } from '../config';
 import { environment } from '../environments/environment';
 import { AuthService } from '../providers/services/auth-service';
 import { AuthGuard } from '../providers/services/authguard-service';
+import { UpdateService } from '../providers/services/update-service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 @NgModule({
@@ -29,7 +30,8 @@ import { AppComponent } from './app.component';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     AngularFireAuth,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    UpdateService
   ],
   bootstrap: [AppComponent]
 })
