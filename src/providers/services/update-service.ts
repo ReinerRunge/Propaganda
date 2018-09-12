@@ -16,7 +16,7 @@ export class UpdateService {
       message: msg,
       showCloseButton: true,
       position: 'bottom',
-      closeButtonText: 'ok'
+      closeButtonText: 'Ok'
     });
     toast.present();
 
