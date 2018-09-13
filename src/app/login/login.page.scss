@@ -1,4 +1,5 @@
 .login-container{
+    z-index: 100;
     text-align: center;
     width: 90%;
     margin: auto;
@@ -14,10 +15,13 @@
         margin-bottom: 10px;
     }
 
-
-      .signin-logo{
-          margin-right: 5px;
-      }
+    .signin-logo{
+        margin-right: 5px;
+	}
+	
+	.login-form{
+		box-shadow: 6px 6px 4px -2px rgb(80, 80, 80);
+	}
 }
 
 body {
@@ -27,9 +31,13 @@ body {
 }
 
 header {
+	position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
 	display: flex;
 	overflow: hidden;
-	height: 50vw;
+	//height: 50vw;
 	background: #111;
 }
 
@@ -50,11 +58,9 @@ header img:hover {
 }
 
 header .column {
-	animation: var(--animation, none) 16s infinite linear;
-}
-
-header .column:hover {
-	animation-play-state: paused;
+	--animation: slide;
+    height: 200%;
+	animation: var(--animation, none) 40s infinite linear;
 }
 
 header .column:nth-of-type(odd) {
