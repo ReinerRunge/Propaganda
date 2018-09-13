@@ -8,14 +8,61 @@
     }
 
     .logo{
+        width: 200px;
+        height: 200px;
         border-radius: 160px;
-    width: 53%;
-    margin-bottom: 10px;
+        margin-bottom: 10px;
     }
 
 
       .signin-logo{
           margin-right: 5px;
       }
+}
+
+body {
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+}
+
+header {
+	display: flex;
+	overflow: hidden;
+	height: 50vw;
+	background: #111;
+}
+
+header:hover img {
+	opacity: 0.5;
+}
+
+header img {
+	max-width: 100%;
+	vertical-align: middle;
+	border: 1px solid black;
+	box-sizing: border-box;
+	transition: opacity .2s;
+}
+
+header img:hover {
+	opacity: 1;
+}
+
+header .column {
+	animation: var(--animation, none) 16s infinite linear;
+}
+
+header .column:hover {
+	animation-play-state: paused;
+}
+
+header .column:nth-of-type(odd) {
+	align-self: flex-end;
+	--direction: 50%;
+}
+
+@keyframes slide {
+	to { transform: translateY(var(--direction, -50%)) }
 }
 
