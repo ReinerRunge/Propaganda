@@ -52,28 +52,25 @@
                 <ion-list [formGroup]="loginForm">
                   <ion-item>
                     <ion-icon slot='start' name='contact'></ion-icon>
-                    <ion-input placeholder='username' type='email' autocapitalize=off formControlName="emailaddress"></ion-input>
+                    <ion-input placeholder='email address' type='email' autocapitalize=off formControlName="emailaddress"></ion-input>
                   </ion-item>
                   <ion-item>
                       <ion-icon slot='start' name='lock'></ion-icon>
                       <ion-input placeholder='password' type='password' (keypress)="keyPress($event.keyCode)"  formControlName="password"></ion-input>
                   </ion-item>
-                  <ion-button style="margin-top: 10px" small (click)="login()" [disabled]="!loginForm.valid" >Login</ion-button>
+                  <ion-button style="margin-top: 10px" small color='danger' (click)="login()" [disabled]="!loginForm.valid" >Login</ion-button>
                   <ion-label text-wrap>{{error}}</ion-label>
+                  <div class="relative"><hr><span class="login-text">or login with</span></div>
+                  <ion-button color='danger' (click)="loginWithGoogle()">
+                      <ion-icon slot='icon-only' name="logo-google"></ion-icon>
+                  </ion-button>
 
-                  <ion-button icon-left block fill="outline" (click)="loginWithGoogle()">
-                      <ion-icon class="signin-logo" name="logo-google"></ion-icon>
-                      Log in with Google
+                    <ion-button color='danger' (click)="loginWithFacebook()">
+                      <ion-icon name="logo-facebook"></ion-icon>
                     </ion-button>
 
-                    <ion-button icon-left block fill="outline" (click)="loginWithFacebook()">
-                      <ion-icon class="signin-logo" name="logo-facebook"></ion-icon>
-                      Log in with Facebook
-                    </ion-button>
-
-                    <ion-button icon-left block fill="outline" (click)="loginWithTwitter()">
-                      <ion-icon class="signin-logo" name="logo-twitter"></ion-icon>
-                      Log in with Twitter
+                    <ion-button color='danger' (click)="loginWithTwitter()">
+                      <ion-icon name="logo-twitter"></ion-icon>
                     </ion-button>
                 </ion-list>
               </div>
