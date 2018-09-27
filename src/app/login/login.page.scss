@@ -64,20 +64,12 @@ header {
 	background: #111;
 }
 
-header:hover img {
-	opacity: 0.5;
-}
-
 header img {
 	max-width: 100%;
 	vertical-align: middle;
 	border: 1px solid black;
 	box-sizing: border-box;
 	transition: opacity .2s;
-}
-
-header img:hover {
-	opacity: 1;
 }
 
 header .column {
