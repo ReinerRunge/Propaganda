@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { Platform } from '@ionic/angular';
+import { LoadingController, Platform } from '@ionic/angular';
 import { AuthService } from '../providers/services/auth-service';
 import { UpdateService } from '../providers/services/update-service';
 
@@ -33,7 +33,8 @@ export class AppComponent {
     private statusBar: StatusBar,
     private auth: AuthService,
     private update: UpdateService,
-    private router: Router
+    private router: Router,
+    private loadingCtrl: LoadingController
   ) {
     this.initializeApp();
   }
@@ -44,16 +45,30 @@ export class AppComponent {
       this.splashScreen.hide();
     });
 
-    this.auth.afAuth.authState
-    .subscribe(
+
+    this.attemptLogin();
+    
+  }
+
+  async attemptLogin() {
+    const loading = await this.loadingCtrl.create({
+      message: 'attempting autologin...',
+    });
+
+    await loading.present();
+    this.auth.afAuth.authState.subscribe(
       user => {
         if (user) {
+          loading.dismiss();
           this.router.navigate(['home']);
         } else {
+          loading.dismiss();
           this.router.navigate(['login']);
         }
+
       },
       () => {
+        loading.dismiss();
         this.router.navigate(['login']);
       }
     );

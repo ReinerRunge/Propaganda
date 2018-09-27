@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import { Observable } from 'rxjs';
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private loadingtrl: LoadingController) {}
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
